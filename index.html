@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Spot</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <section id="landing">
+        <nav>
+            <ul class="nav__link--lists">
+                <li class="nav__link">
+                    <a href="#languages" class="
+                    nav__link--anchor
+                    link__hover-effect
+                    link__hover-effect--black
+                    ">Trending</a>
+                </li>
+                <li class="nav__link">
+                    <a href="#projects" class="
+                    nav__link--anchor
+                    link__hover-effect
+                    link__hover-effect--black
+                    ">New Releases</a>
+                </li>
+                <li class="nav__link">
+                    <a href="mailto:anthonyjimerson42@gmail.com" class="
+                    nav__link--anchor
+                    nav__link--anchor-primary
+                    ">All Movies</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="flex flex-1">
+            <div class="landing__info row">
+                <div class="landing__info--container">
+                 <figure class="landing__picture--mask">
+                   <img src="./javascript final assets/totoro.png" class="landing__picture" alt="Picture of Me!"> 
+                 </figure>
+                 <h1 class="landing__info--title">Welcome to Movie Spot!</span><span class="wave">👋</span>
+                </h1>
+                <p class="landing__info--para">Search your <strong class="text--blue">favorite</strong> movies below!
+                </p>
+                <div class="search__bar">
+                    <input type="email" placeholder="What are we watching?">
+                    <button class="search__btn"><i class="fas fa-arrow-right"></i></button>
+                </input>
+                </div>   
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="results__container">
+                <div class="results__header">
+                    <h1 class="search__results">Movies </h1>
+                    <select id="filter">
+                        <option value="start" disabled selected>Sort</option>
+                        <option value="NEWEST-OLDEST">Newest</option>
+                        <option value="OLDEST-NEWEST">Oldest</option>
+                    </select>
+                </div>
+                <div class="movie__list">
+                    <div class="movie">
+                        <div class="movie-card">
+                            <div class="movie-card__container">
+                                <h3>Movie Title</h3>
+                                <h4><img src="" alt=""></h4>
+                                <p><b>Year</b>0000</p>
+                                <p><b>Rating</b>xxxx</p>
+                                <p><b>Released</b>00/00/0000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+</html>
