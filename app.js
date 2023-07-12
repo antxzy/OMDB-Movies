@@ -6,9 +6,9 @@ const loaderSpinEl = document.querySelector(" .loader")
 const sortEl = document.querySelector("#sort")
 let keyword = ""
 
-async function renderMovies (filter) {
+async function renderMovies (sort) {
 
-    console.log(filter)
+    console.log(sort)
 
     const URL = `https://www.omdbapi.com/?s=${keyword}&page=1&apikey=867f9b9b`
     const res = await fetch(`${URL}`)
