@@ -10,7 +10,7 @@ let keyword = ""
 async function renderMovies (sort) {
 
     
-
+ 
     
     setTimeout(() => {
         loaderSpinEl.classList += ' movies__loading'
