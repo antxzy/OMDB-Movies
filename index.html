@@ -1,84 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Spot</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FilmHunt</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="app.js" defer></script>
-</head>
-<body>
-    <section id="landing">
-        <nav>
-            <ul class="nav__link--lists">
-                <li class="nav__link">
-                    <a href="#languages" class="
-                    nav__link--anchor
-                    link__hover-effect
-                    link__hover-effect--black
-                    ">Trending</a>
-                </li>
-                <li class="nav__link">
-                    <a href="#projects" class="
-                    nav__link--anchor
-                    link__hover-effect
-                    link__hover-effect--black
-                    ">New Releases</a>
-                </li>
-                <li class="nav__link">
-                    <a href="mailto:anthonyjimerson42@gmail.com" class="
-                    nav__link--anchor
-                    nav__link--anchor-primary
-                    ">All Movies</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="flex flex-1">
-            <div class="landing__info row">
-                <div class="landing__info--container">
-                 <figure class="landing__picture--mask">
-                   <img src="./javascript final assets/totoro.png" class="landing__picture" alt="Picture of Me!"> 
-                 </figure>
-                 <h1 class="landing__info--title">Welcome to Movie Spot!</span><span class="wave">👋</span>
-                </h1>
-                <p class="landing__info--para">Search your <strong class="text--blue">favorite</strong> movies below!
-                </p>
-                <div class="search__bar">
-                    <input type="email" placeholder="What are we watching?">
-                    <button class="search__btn"><i class="fas fa-arrow-right"></i></button>
-                </input>
-                </div>   
-                </div>
+  </head>
+  <body>
+    <div class="logo__wrapper">
+      <div class="logo">
+        <div class="container">
+          <p>FilmHunt</p>
+        </div>
+      </div>
+    </div>
+    <div class="search__container">
+      <div class="search__element">
+        <h3>Search Movie</h3>
+        <input
+          type="text"
+          class="form__control"
+          placeholder="What are we watching?"
+          id="movie__search--box"
+          onchange="onSearchChange(event)"
+        />
+      </div>
+      <div class="trending__filter--wrapper">
+          <h1 class="title">Trending Now</h1>
+          <div class="result__filter">
+              <select name="" id="sort" onchange="sortMovieYear(event)">
+                  <option value disabled selected>Sort</option>
+                  <option value="NEW_TO_OLD">New to Old</option>
+                  <option value="OLD_TO_NEW">Old to New</option>
+                </select>
             </div>
         </div>
-        <div class="row">
-            <div class="results__container">
-                <div class="results__header">
-                    <h1 class="search__results">Movies </h1>
-                    <select id="filter">
-                        <option value="start" disabled selected>Sort</option>
-                        <option value="NEWEST-OLDEST">Newest</option>
-                        <option value="OLDEST-NEWEST">Oldest</option>
-                    </select>
-                </div>
-                <div class="movie__list">
-                    <div class="movie">
-                        <div class="movie-card">
-                            <div class="movie-card__container">
-                                <h3>Movie Title</h3>
-                                <h4><img src="" alt=""></h4>
-                                <p><b>Year</b>0000</p>
-                                <p><b>Rating</b>xxxx</p>
-                                <p><b>Released</b>00/00/0000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="loader">
+            <i class="fas fa-spinner"></i>
         </div>
-    </section>
+    </div>
 
-    
-</body>
+    <div class="movie__results">
+      <div class="result__container">
+        <div class="info__wrapper">
+          <div class="movie__poster">
+            <img
+              src="./javascript final assets/totoro.png"
+              alt=""
+              class="movie__poster--img"
+            />
+          </div>
+          <div class="movie__info">
+            <h3 class="movie__title">Movie Title</h3>
+            <ul class="movie__info">
+              <li class="year">Year: 2017</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="result__container">
+        <div class="info__wrapper">
+          <div class="movie__poster">
+            <img
+              src="./javascript final assets/totoro.png"
+              alt=""
+              class="movie__poster--img"
+            />
+          </div>
+          <div class="movie__info">
+            <h3 class="movie__title">Movie Title</h3>
+            <ul class="movie__info">
+              <li class="year">Year: 2017</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="result__container">
+        <div class="info__wrapper">
+          <div class="movie__poster">
+            <img
+              src="./javascript final assets/totoro.png"
+              alt=""
+              class="movie__poster--img"
+            />
+          </div>
+          <div class="movie__info">
+            <h3 class="movie__title">Movie Title</h3>
+            <ul class="movie__info">
+              <li class="year">Year: 2017</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="result__container">
+        <div class="info__wrapper">
+          <div class="movie__poster">
+            <img
+              src="./javascript final assets/totoro.png"
+              alt=""
+              class="movie__poster--img"
+            />
+          </div>
+          <div class="movie__info">
+            <h3 class="movie__title">Movie Title</h3>
+            <ul class="movie__info">
+              <li class="year">Year: 2017</li>
+            </ul>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </body>
 </html>

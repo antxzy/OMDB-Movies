@@ -1,29 +1,62 @@
-async function main() {
-    const movies = await fetch("https://www.omdbapi.com/?i=tt3896198&apikey=867f9b9b")
-    const moviesData = await movies.json()
-    const moviesListEl = document.querySelector(".movie__list")
-    
-    const result = Object.entries(moviesData).map(([key, value]) => {
-    
-        return {[key]: value}
-    })
+//`https://www.omdbapi.com/?i=tt3896198&apikey=867f9b9b&s=${keyword}`
 
-    console.log(result) 
+const movieResultsEl = document.querySelector(" .movie__results")
+const searchTitleEl = document.querySelector(" .title")
+const loaderSpinEl = document.querySelector(" .loader")
+const sortEl = document.querySelector("#sort")
 
-    moviesListEl.innerHTML = result.map(movie =>
-    `<div class="movie-card">
-    <div class="movie-card__container">
-        <h3>${movie.Title}</h3>
-        <h4><img src="" alt=""></h4>
-        <p><b>Year</b>0000</p>
-        <p><b>Rating</b>xxxx</p>
-        <p><b>Released</b>00/00/0000</p>
-    </div>
-</div>`)
-    
+async function renderMovies (filter) {
 
+
+    const URL = `https://www.omdbapi.com/?s=${keyword}&page=1&apikey=867f9b9b`
+    const res = await fetch(`${URL}`)
+    const data = await res.json()
+    const movieListEl = document.querySelector(".result__container")
+   
+    movieListEl.innerHTML = data.Search.map((movie) => moviesHTML(movie)).join("")
+
+    if(sort === "NEW_TO_OLD") {
+        data.sort ((a, b) => b.Year - a.Year)
+    }
+    else if (sort === "OLD_TO_NEW") {
+        data.sort ((a, b) => a.Year - b.Year)
+    }
+
+           
 
 }
 
-main()
+function sortMovieYear (event) {
+    renderMovies(event.target.value)
+}
 
+
+
+async function onSearchChange(event) {
+    const keyword = event.target.value
+    const URL = `https://www.omdbapi.com/?s=${keyword}&page=1&apikey=867f9b9b`
+    const res = await fetch(`${URL}`)
+    const data = await res.json()
+    const movieListEl = document.querySelector(".result__container")
+    movieListEl.innerHTML = data.Search.map((movie) => moviesHTML(movie)).join("")
+}
+
+
+
+function moviesHTML(movie) {
+    return `<div class="container movie__container">
+    <div class="result__container">
+      <div class="info__wrapper">
+        <div class="movie__poster">
+          <img src="${movie.Poster}"alt=""class="movie__poster--img"/>
+        </div>
+        <div class="movie__info">
+          <h3 class="movie__title">${movie.Title}</h3>
+          <ul class="movie__info">
+            <li class="year">Year: ${movie.Year}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>`
+}
