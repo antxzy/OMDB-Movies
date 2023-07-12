@@ -2,19 +2,33 @@
 
 const movieResultsEl = document.querySelector(" .movie__results")
 const searchTitleEl = document.querySelector(" .title")
-const loaderSpinEl = document.querySelector(" .loader")
+const loaderSpinEl = document.querySelector(" .loading")
 const sortEl = document.querySelector("#sort")
 let keyword = ""
 
+
 async function renderMovies (sort) {
 
-    console.log(sort)
+    
 
+    
+    setTimeout(() => {
+        loaderSpinEl.classList += ' movies__loading'
+        console.log('spin')
+    }, 400);
+    
     const URL = `https://www.omdbapi.com/?s=${keyword}&page=1&apikey=867f9b9b`
     const res = await fetch(`${URL}`)
     const data = await res.json()
     const movieListEl = document.querySelector(".result__container")
-   
+    
+    
+    
+    setTimeout(() => {
+        movieResultsEl.style.display='block'
+        movieListEl.innerHTML = data.Search.map((movie) => moviesHTML(movie)).join("")
+        loaderSpinEl.classList.remove('movies__loading')
+    }, 1200);
     
     if(sort === "NEW_TO_OLD") {
         data.Search.sort ((a, b) => b.Year - a.Year)
@@ -24,9 +38,8 @@ async function renderMovies (sort) {
     }
     
     
-    movieListEl.innerHTML = data.Search.map((movie) => moviesHTML(movie)).join("")
-
 }
+
 
 function sortMovieYear () {
     const sortValue = sortEl.value;
@@ -36,12 +49,29 @@ function sortMovieYear () {
 
 
 async function onSearchChange(event) {
-    const keyword = event.target.value
+
+
+    setTimeout(() => {
+        loaderSpinEl.classList += ' movies__loading'
+        console.log('spin')
+    }, 400);
+
+    
+    keyword = event.target.value
     const URL = `https://www.omdbapi.com/?s=${keyword}&page=1&apikey=867f9b9b`
     const res = await fetch(`${URL}`)
     const data = await res.json()
-    const movieListEl = document.querySelector(".result__container")
-    movieListEl.innerHTML = data.Search.map((movie) => moviesHTML(movie)).join("")
+    
+    setTimeout(() => {
+        movieResultsEl.style.display = 'block'
+        const movieListEl = document.querySelector(".result__container")
+        movieListEl.innerHTML = data.Search.map((movie) => moviesHTML(movie)).join("")
+        loaderSpinEl.classList.remove('movies__loading')
+        searchTitleEl.innerHTML = `Results for: ${keyword}`
+        sortEl.style.display='block'
+    }, 1200); 
+
+    
 }
 
 

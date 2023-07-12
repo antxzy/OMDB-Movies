@@ -12,108 +12,112 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <div class="logo__wrapper">
-      <div class="logo">
-        <div class="container">
-          <p>FilmHunt</p>
+    <nav>
+      <div class="logo__wrapper">
+        <p class="logo">FilmHunt</p>
+      </div>
+      <div class="nav__links">
+        <li><a href="" class="nav__link">Home</a></li>
+        <li><a href="" class="nav__link">Contact</a></li>
+      </div>
+    </nav>
+    <section class="landing">
+      <div class="search__container">
+        <div class="search__element">
+          <h3>Search Movie</h3>
+          <input
+            type="text"
+            class="form__control"
+            placeholder="What are we watching?"
+            id="movie__search--box"
+            onchange="onSearchChange(event)"
+          />
+        </div>
+        <div class="trending__filter--wrapper">
+          <h1 class="title"></h1>
+          <div class="result__filter">
+            <select name="" id="sort" onchange="sortMovieYear(event)">
+              <option value disabled selected>Sort</option>
+              <option value="NEW_TO_OLD">New to Old</option>
+              <option value="OLD_TO_NEW">Old to New</option>
+            </select>
+          </div>
+        </div>
+        <div class="loading">
+          <i class="fas fa-spinner movies__loading--spinner"></i>
         </div>
       </div>
-    </div>
-    <div class="search__container">
-      <div class="search__element">
-        <h3>Search Movie</h3>
-        <input
-          type="text"
-          class="form__control"
-          placeholder="What are we watching?"
-          id="movie__search--box"
-          onchange="onSearchChange(event)"
-        />
-      </div>
-      <div class="trending__filter--wrapper">
-          <h1 class="title">Trending Now</h1>
-          <div class="result__filter">
-              <select name="" id="sort" onchange="sortMovieYear(event)">
-                  <option value disabled selected>Sort</option>
-                  <option value="NEW_TO_OLD">New to Old</option>
-                  <option value="OLD_TO_NEW">Old to New</option>
-                </select>
+
+      <div class="movie__results">
+        <div class="result__container">
+          <div class="info__wrapper">
+            <div class="movie__poster">
+              <img
+                src="./javascript final assets/totoro.png"
+                alt=""
+                class="movie__poster--img"
+              />
+            </div>
+            <div class="movie__info">
+              <h3 class="movie__title">Movie Title</h3>
+              <ul class="movie__info">
+                <li class="year">Year: 2017</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="result__container">
+        <div class="info__wrapper">
+            <div class="movie__poster">
+                <img
+                src="./javascript final assets/totoro.png"
+                alt=""
+                class="movie__poster--img"
+                />
+            </div>
+            <div class="movie__info">
+                <h3 class="movie__title">Movie Title</h3>
+                <ul class="movie__info">
+                    <li class="year">Year: 2017</li>
+                </ul>
             </div>
         </div>
-        <div class="loader">
-            <i class="fas fa-spinner"></i>
+    </div>
+    <div class="result__container">
+        <div class="info__wrapper">
+            <div class="movie__poster">
+                <img
+                src="./javascript final assets/totoro.png"
+                alt=""
+                class="movie__poster--img"
+                />
+            </div>
+            <div class="movie__info">
+                <h3 class="movie__title">Movie Title</h3>
+                <ul class="movie__info">
+                    <li class="year">Year: 2017</li>
+                </ul>
+            </div>
         </div>
     </div>
-
-    <div class="movie__results">
-      <div class="result__container">
+    <div class="result__container">
         <div class="info__wrapper">
-          <div class="movie__poster">
-            <img
-              src="./javascript final assets/totoro.png"
-              alt=""
-              class="movie__poster--img"
-            />
-          </div>
-          <div class="movie__info">
-            <h3 class="movie__title">Movie Title</h3>
-            <ul class="movie__info">
-              <li class="year">Year: 2017</li>
-            </ul>
-          </div>
+            <div class="movie__poster">
+                <img
+                src="./javascript final assets/totoro.png"
+                alt=""
+                class="movie__poster--img"
+                />
+            </div>
+            <div class="movie__info">
+                <h3 class="movie__title">Movie Title</h3>
+                <ul class="movie__info">
+                    <li class="year">Year: 2017</li>
+                </ul>
+            </div>
         </div>
+    </div> -->
       </div>
-      <!-- <div class="result__container">
-        <div class="info__wrapper">
-          <div class="movie__poster">
-            <img
-              src="./javascript final assets/totoro.png"
-              alt=""
-              class="movie__poster--img"
-            />
-          </div>
-          <div class="movie__info">
-            <h3 class="movie__title">Movie Title</h3>
-            <ul class="movie__info">
-              <li class="year">Year: 2017</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="result__container">
-        <div class="info__wrapper">
-          <div class="movie__poster">
-            <img
-              src="./javascript final assets/totoro.png"
-              alt=""
-              class="movie__poster--img"
-            />
-          </div>
-          <div class="movie__info">
-            <h3 class="movie__title">Movie Title</h3>
-            <ul class="movie__info">
-              <li class="year">Year: 2017</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="result__container">
-        <div class="info__wrapper">
-          <div class="movie__poster">
-            <img
-              src="./javascript final assets/totoro.png"
-              alt=""
-              class="movie__poster--img"
-            />
-          </div>
-          <div class="movie__info">
-            <h3 class="movie__title">Movie Title</h3>
-            <ul class="movie__info">
-              <li class="year">Year: 2017</li>
-            </ul>
-          </div>
-        </div>
-      </div> -->
-    </div>
-  </body>
+    </section>
+    </body>
 </html>
